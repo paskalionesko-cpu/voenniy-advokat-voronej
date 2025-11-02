@@ -155,7 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
     var modal = document.getElementById('serviceModal');
     var modalContent = document.getElementById('modalContent');
     var closeBtn = document.getElementById('closeModal');
-    var cards = document.querySelectorAll('.service-card');
+    var cards = document.querySelectorAll('.service-card-main');
+
+    // Проверка наличия необходимых элементов
+    if (!modal || !modalContent) {
+      console.warn('Модальное окно не найдено');
+      return;
+    }
+
+    if (cards.length === 0) {
+      console.warn('Карточки услуг не найдены');
+      return;
+    }
 
     var serviceData = {
       contracts: {
@@ -264,10 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
           return '<li class="flex items-start gap-2"><span style="color: var(--accent);" class="mt-1">•</span><span>' + item + '</span></li>';
         }).join('') +
         '</ul>' +
-        '</div>' +
-        '<div class="mt-8 flex flex-col sm:flex-row gap-3">' +
-        '<a href="#contacts" class="btn-consult" onclick="document.getElementById(\'serviceModal\').classList.remove(\'open\')">Записаться на консультацию</a>' +
-        '<a href="tel:+79531190323" class="btn-call"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.07 22 2 13.93 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.59a1 1 0 0 1-.25 1.01l-2.2 2.19Z"/></svg><span>Позвонить</span></a>' +
         '</div>';
 
       modal.classList.add('open');
