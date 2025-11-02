@@ -14,7 +14,6 @@
   function initEmailJS() {
     if (typeof emailjs !== 'undefined' && EMAILJS_CONFIG.PUBLIC_KEY) {
       emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-      console.log('EmailJS инициализирован');
     }
   }
 
@@ -29,7 +28,6 @@
   window.sendEmailViaEmailJS = function(data, callbacks) {
     if (!isEmailJSConfigured()) {
       const error = 'EmailJS не настроен';
-      console.error(error);
       if (callbacks && callbacks.onError) {
         callbacks.onError(error);
       }
@@ -47,13 +45,11 @@
     console.log('Отправка письма...');
     return emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, templateParams)
       .then(function(response) {
-        console.log('Успешно отправлено!', response);
         if (callbacks && callbacks.onSuccess) {
           callbacks.onSuccess(response);
         }
         return response;
       }, function(error) {
-        console.error('Ошибка EmailJS:', error);
         if (callbacks && callbacks.onError) {
           callbacks.onError('Ошибка отправки: ' + error.text);
         }
@@ -71,5 +67,4 @@
   }
   setTimeout(initEmailJS, 100);
 
-  console.log('EmailJS настроен:', isEmailJSConfigured());
 })();
