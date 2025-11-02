@@ -2,22 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     var y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
-
-  // Mobile menu toggle
-  var toggle = document.getElementById('menuToggle');
-  var mobileNav = document.getElementById('mobileNav');
-  if (toggle && mobileNav) {
-    toggle.addEventListener('click', function () {
-      var isOpen = mobileNav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
-    mobileNav.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        mobileNav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
   });
   
   // Intersection Observer: lazy show секций + lazy images

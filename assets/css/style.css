@@ -192,13 +192,6 @@
   transform: scale(1);
 }
 
-/* Мобильное меню */
-.mobile-nav {
-  display: none;
-}
-.mobile-nav.open {
-  display: block;
-}
 
 .service-detail-card {
   position: relative;
