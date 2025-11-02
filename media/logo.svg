@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Военный адвокат">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#5686fe"/>
+      <stop offset="100%" stop-color="#2f5fe6"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="64" height="64" rx="12" fill="#1b1b1c"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#282829" stroke-width="2"/>
+  <path d="M32 12l16 8v10c0 10-7 16-16 20-9-4-16-10-16-20V20l16-8Z" fill="url(#g)"/>
+  <path d="M22 30h20M22 36h12" stroke="#f9fafb" stroke-width="2" stroke-linecap="round"/>
+</svg>
+

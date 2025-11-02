@@ -1,0 +1,769 @@
+/* Базовые анимации появления */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: opacity, transform;
+  }
+  .reveal-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 600ms ease, transform 600ms ease;
+  }
+  
+  /* Улучшение рендеринга шрифтов */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  
+  /* Скрытие ошибок формы по умолчанию управляется классом .hidden из Tailwind */
+
+/* Тёмная строгая тема (палитра из ТЗ) */
+:root {
+  --bg: #151517;          /* фон */
+  --block: #1b1b1c;       /* блоки */
+  --bright: #353638;      /* яркие блоки */
+  --btn: #43454a;         /* кнопки */
+  --accent: #5686fe;      /* акцент */
+  --text: #f9fafb;        /* текст */
+  --border: #282829;      /* бордер */
+}
+
+.bg-base { background-color: var(--bg); }
+.bg-block { background-color: var(--block); }
+.bg-bright { background-color: var(--bright); }
+.bg-header-bar { 
+  background-color: rgba(44, 44, 46, 0.8);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+.text-theme { color: var(--text); }
+.border-theme { border-color: var(--border); }
+.link-accent { color: var(--accent); }
+.link-accent:hover { text-decoration: underline; }
+
+.card {
+  background-color: var(--block);
+  border: 1px solid var(--border);
+  border-radius: 1rem; /* 16px */
+  word-wrap: break-word;
+}
+.card-bright {
+  background-color: var(--bright);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+.lift { transition: transform 250ms ease; }
+.lift:hover { transform: translateY(-3px); }
+
+.btn {
+  background-color: var(--btn);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem; /* 12px */
+  padding: 0.875rem 1.5rem; /* py-3.5 px-6 */
+  font-weight: 600;
+  font-size: 0.9375rem; /* 15px */
+}
+.btn:hover { filter: brightness(1.05); }
+.btn-accent {
+  background-color: var(--accent);
+  color: #0b1220;
+  border: 1px solid var(--accent);
+}
+
+/* Эффект круга с блюром при наведении на карточки */
+.cards-container {
+  position: relative;
+}
+
+.card-hover {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-hover::before {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(86, 134, 254, 0.2) 0%, transparent 70%);
+  filter: blur(30px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  left: var(--mouse-x, 50%);
+  top: var(--mouse-y, 50%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.card-hover:hover::before {
+  opacity: 1;
+}
+
+.card-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 1rem;
+}
+
+.card-hover:hover::after {
+  opacity: 1;
+}
+
+.card-hover > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Анимация появления стрелки */
+.card-hover .group:hover .text-xs {
+  transform: translateX(4px);
+  transition: transform 0.2s ease;
+}
+
+/* Ссылка с декоративной линией */
+.link-decorative {
+  color: var(--accent);
+  font-weight: 500;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.75rem 0;
+  transition: opacity 200ms ease;
+  width: 100%;
+}
+.link-decorative:hover {
+  opacity: 0.8;
+}
+.link-decorative::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, var(--accent) 10%, var(--accent) 90%, transparent 100%);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+.link-decorative span {
+  background-color: var(--bg);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Аккуратный фон из точек для героя */
+.bg-dots-soft {
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 1px 1px, rgba(249, 250, 251, 0.05) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+/* Модальное окно */
+#serviceModal {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#serviceModal.open {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+.service-modal-content {
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+#serviceModal.open .service-modal-content {
+  transform: scale(1);
+}
+
+/* Мобильное меню */
+.mobile-nav {
+  display: none;
+}
+.mobile-nav.open {
+  display: block;
+}
+
+.service-detail-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(27, 27, 28, 0.8) 0%, rgba(27, 27, 28, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(86, 134, 254, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.service-detail-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.1) 0%, rgba(86, 134, 254, 0.02) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 1rem;
+  z-index: 0;
+}
+
+.service-detail-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.service-detail-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(86, 134, 254, 0.3);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(86, 134, 254, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.service-detail-card:hover::before {
+  opacity: 1;
+}
+
+.service-detail-card:hover::after {
+  opacity: 1;
+}
+
+.service-detail-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Иконки в карточках услуг */
+.service-detail-card .icon-wrapper {
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.15) 0%, rgba(86, 134, 254, 0.05) 100%);
+  border: 1px solid rgba(86, 134, 254, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 6px -1px rgba(86, 134, 254, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.service-detail-card:hover .icon-wrapper {
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.25) 0%, rgba(86, 134, 254, 0.1) 100%);
+  border-color: rgba(86, 134, 254, 0.4);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 
+    0 8px 12px -2px rgba(86, 134, 254, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Эффект для списков */
+.service-detail-card ul li {
+  transition: all 0.3s ease;
+  border-left: 2px solid transparent;
+  padding-left: 0.5rem;
+}
+
+.service-detail-card:hover ul li {
+  transform: translateX(6px);
+  border-left-color: rgba(86, 134, 254, 0.3);
+  padding-left: 0.75rem;
+}
+
+.service-detail-card ul li:nth-child(1) { transition-delay: 0.05s; }
+.service-detail-card ul li:nth-child(2) { transition-delay: 0.1s; }
+.service-detail-card ul li:nth-child(3) { transition-delay: 0.15s; }
+.service-detail-card ul li:nth-child(4) { transition-delay: 0.2s; }
+.service-detail-card ul li:nth-child(5) { transition-delay: 0.25s; }
+.service-detail-card ul li:nth-child(6) { transition-delay: 0.3s; }
+
+/* Блок цены */
+.service-detail-card .price-box {
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.15) 0%, rgba(86, 134, 254, 0.05) 100%);
+  border: 1px solid rgba(86, 134, 254, 0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-detail-card .price-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(86, 134, 254, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: shimmer 3s infinite;
+}
+
+.service-detail-card:hover .price-box {
+  border-color: rgba(86, 134, 254, 0.4);
+  box-shadow: 0 4px 12px rgba(86, 134, 254, 0.15);
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Заголовок страницы услуг */
+.services-header {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.services-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+}
+
+/* CTA блок */
+.cta-block {
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.12) 0%, rgba(86, 134, 254, 0.05) 100%);
+  border: 1px solid rgba(86, 134, 254, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.2),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-block::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(86, 134, 254, 0.15) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.cta-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cta-block:hover {
+  border-color: rgba(86, 134, 254, 0.4);
+  transform: translateY(-2px);
+}
+
+.cta-block:hover::after {
+  opacity: 1;
+}
+
+.cta-block > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Информативные карточки на главной (Индивидуально, Конфиденциально, В срок) */
+.info-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(27, 27, 28, 0.8) 0%, rgba(27, 27, 28, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(86, 134, 254, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.08) 0%, rgba(86, 134, 254, 0.02) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 1rem;
+  z-index: 0;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(86, 134, 254, 0.3);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(86, 134, 254, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.info-card:hover::before {
+  opacity: 1;
+}
+
+.info-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.info-card .icon-wrapper {
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.15) 0%, rgba(86, 134, 254, 0.05) 100%);
+  border: 1px solid rgba(86, 134, 254, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 6px -1px rgba(86, 134, 254, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.info-card:hover .icon-wrapper {
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.25) 0%, rgba(86, 134, 254, 0.1) 100%);
+  border-color: rgba(86, 134, 254, 0.4);
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 
+    0 8px 12px -2px rgba(86, 134, 254, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Карточки услуг на главной странице */
+.service-card-main {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(27, 27, 28, 0.8) 0%, rgba(27, 27, 28, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(86, 134, 254, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.service-card-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.1) 0%, rgba(86, 134, 254, 0.02) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 1rem;
+  z-index: 0;
+}
+
+.service-card-main::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.service-card-main:hover {
+  transform: translateY(-6px);
+  border-color: rgba(86, 134, 254, 0.3);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(86, 134, 254, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.service-card-main:hover::before {
+  opacity: 1;
+}
+
+.service-card-main:hover::after {
+  opacity: 1;
+}
+
+.service-card-main > * {
+  position: relative;
+  z-index: 2;
+}
+
+.service-card-main .icon-wrapper {
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.15) 0%, rgba(86, 134, 254, 0.05) 100%);
+  border: 1px solid rgba(86, 134, 254, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 6px -1px rgba(86, 134, 254, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.service-card-main:hover .icon-wrapper {
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.25) 0%, rgba(86, 134, 254, 0.1) 100%);
+  border-color: rgba(86, 134, 254, 0.4);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 
+    0 8px 12px -2px rgba(86, 134, 254, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Кнопка "Позвонить" в стиле карточек */
+.btn-call {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: rgb(50, 108, 255);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(27, 27, 28, 0.9) 0%, rgba(27, 27, 28, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(86, 134, 254, 0.2);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.btn-call::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.15) 0%, rgba(86, 134, 254, 0.05) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 0.75rem;
+  z-index: 0;
+}
+
+.btn-call::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.btn-call:hover {
+  transform: translateY(-3px);
+  border-color: rgba(86, 134, 254, 0.4);
+  box-shadow: 
+    0 12px 20px -5px rgba(0, 0, 0, 0.3),
+    0 6px 10px -5px rgba(0, 0, 0, 0.2),
+    0 0 25px rgba(86, 134, 254, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.btn-call:hover::before {
+  opacity: 1;
+}
+
+.btn-call:hover::after {
+  opacity: 1;
+}
+
+.btn-call > * {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-call svg {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-call:hover svg {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 0 4px rgba(86, 134, 254, 0.5));
+}
+
+/* Кнопка "Записаться на консультацию" в стиле карточек */
+.btn-consult {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.15) 0%, rgba(86, 134, 254, 0.08) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(86, 134, 254, 0.3);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn-consult::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.2) 0%, rgba(86, 134, 254, 0.1) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 0.75rem;
+  z-index: 0;
+}
+
+.btn-consult::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.btn-consult:hover {
+  transform: translateY(-3px);
+  border-color: rgba(86, 134, 254, 0.5);
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.2) 0%, rgba(86, 134, 254, 0.12) 100%);
+  box-shadow: 
+    0 12px 20px -5px rgba(0, 0, 0, 0.3),
+    0 6px 10px -5px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(86, 134, 254, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.btn-consult:hover::before {
+  opacity: 1;
+}
+
+.btn-consult:hover::after {
+  opacity: 1;
+}
+
+.btn-consult > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Заголовки секций FAQ */
+.faq-header {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.faq-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+}
+
+/* Элементы FAQ (details) */
+.faq-item {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(27, 27, 28, 0.8) 0%, rgba(27, 27, 28, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(86, 134, 254, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.faq-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(86, 134, 254, 0.08) 0%, rgba(86, 134, 254, 0.02) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 1rem;
+  z-index: 0;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(86, 134, 254, 0.25);
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.2),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(86, 134, 254, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.faq-item:hover::before {
+  opacity: 1;
+}
+
+.faq-item[open] {
+  border-color: rgba(86, 134, 254, 0.3);
+  background: linear-gradient(135deg, rgba(27, 27, 28, 0.9) 0%, rgba(27, 27, 28, 0.98) 100%);
+  box-shadow: 
+    0 12px 20px -5px rgba(0, 0, 0, 0.25),
+    0 6px 10px -5px rgba(0, 0, 0, 0.15),
+    0 0 25px rgba(86, 134, 254, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.faq-item summary {
+  position: relative;
+  z-index: 2;
+}
+
+.faq-item summary:hover {
+  color: var(--text);
+}
