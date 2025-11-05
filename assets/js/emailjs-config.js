@@ -2,29 +2,25 @@
 (function () {
   'use strict';
 
-  // Конфигурация EmailJS - ВАШИ РЕАЛЬНЫЕ ДАННЫЕ
   var EMAILJS_CONFIG = {
-    PUBLIC_KEY: 'Z5OihQQFa1QwaKgwi',
-    SERVICE_ID: 'service_xiwhbub',
-    TEMPLATE_ID: 'template_hcyxmyz',
-    TO_EMAIL: 'ba.batya2018@yandex.ru'
+    PUBLIC_KEY: 'sBm3uarHdpSau7Box',
+    SERVICE_ID: 'service_ksd0pfo',
+    TEMPLATE_ID: 'template_35q42lq',
+    TO_EMAIL: 'voenniy-advokat-voronej@yandex.ru'
   };
 
-  // УДАЛИТЕ ВСЮ ПРОВЕРКУ НА ДЕМО-ЗНАЧЕНИЯ - ЗАМЕНИТЕ НА ПРОСТУЮ ПРОВЕРКУ
   function initEmailJS() {
     if (typeof emailjs !== 'undefined' && EMAILJS_CONFIG.PUBLIC_KEY) {
       emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
     }
   }
 
-  // Простая проверка конфигурации
   function isEmailJSConfigured() {
     return EMAILJS_CONFIG.PUBLIC_KEY && 
            EMAILJS_CONFIG.SERVICE_ID && 
            EMAILJS_CONFIG.TEMPLATE_ID;
   }
 
-  // Остальной код без изменений...
   window.sendEmailViaEmailJS = function(data, callbacks) {
     if (!isEmailJSConfigured()) {
       const error = 'EmailJS не настроен';
@@ -42,7 +38,6 @@
       date: new Date().toLocaleString('ru-RU')
     };
 
-    console.log('Отправка письма...');
     return emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, templateParams)
       .then(function(response) {
         if (callbacks && callbacks.onSuccess) {

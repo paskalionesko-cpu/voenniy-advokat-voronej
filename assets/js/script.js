@@ -1,10 +1,8 @@
-// Установка года в футере
 document.addEventListener('DOMContentLoaded', () => {
     var y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
   });
   
-  // Intersection Observer: lazy show секций + lazy images
   (function () {
     var sections = Array.prototype.slice.call(document.querySelectorAll('[data-observe]'));
     sections.forEach(function (el) {
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           entry.target.classList.add('reveal-in');
           io.unobserve(entry.target);
-          // Lazy images внутри секции
           var lazyImgs = entry.target.querySelectorAll('img[data-src]');
           lazyImgs.forEach(function (img) {
             img.src = img.getAttribute('data-src');
@@ -93,13 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
   
-      // Проверяем наличие функции отправки EmailJS
       if (typeof window.sendEmailViaEmailJS !== 'function') {
         setStatus('Ошибка: EmailJS не загружен', true);
         return;
       }
   
-      // Блокируем кнопку и показываем статус отправки
       submitBtn.disabled = true;
       submitBtn.textContent = 'Отправка...';
       setStatus('Отправка сообщения...', false);
@@ -124,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   
-    // live validation
     form.addEventListener('input', function (e) {
       var t = e.target;
       if (!(t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement)) return;
@@ -141,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
     var closeBtn = document.getElementById('closeModal');
     var cards = document.querySelectorAll('.service-card-main');
 
-    // Проверка наличия необходимых элементов
     if (!modal || !modalContent) {
       console.warn('Модальное окно не найдено');
       return;
