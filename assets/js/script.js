@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       contracts: {
         title: 'Контракты и увольнение',
         description: 'Оспаривание условий, досрочное расторжение, восстановление прав.',
-        icon: '<svg width="32" height="32" fill="none" stroke="#f9fafb" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>',
+        icon: '<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="text-theme"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"></svg>',
         details: [
           'Обжалование приказов об увольнении',
           'Восстановление на службе',
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       disciplinary: {
         title: 'Дисциплинарные взыскания',
         description: 'Жалобы, представительство, защита при разбирательствах.',
-        icon: '<svg width="32" height="32" fill="none" stroke="#f9fafb" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l4 8h8l-6 6 2 8-8-4-8 4 2-8-6-6h8l4-8z"/></svg>',
+        icon: '<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="text-theme"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
         details: [
           'Снятие незаконных взысканий',
           'Жалобы в вышестоящие органы',
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
       payments: {
         title: 'Денежное довольствие',
         description: 'Задолженности, перерасчёт выплат, компенсации.',
-        icon: '<svg width="32" height="32" fill="none" stroke="#f9fafb" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>',
+        icon: '<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="text-theme"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/></svg>',
         details: [
           'Недоплата окладов и надбавок',
           'Компенсация за задержку выплат',
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
       benefits: {
         title: 'Льготы и соц. гарантии',
         description: 'Оформление, восстановление, защита прав членов семей.',
-        icon: '<svg width="32" height="32" fill="none" stroke="#f9fafb" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 3.694 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 3.694 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-3.694 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-3.694 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"/></svg>',
+        icon: '<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="text-theme"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>',
         details: [
           'Статус участника СВО/боевых действий',
           'Компенсации и выплаты семьям',
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       insurance: {
         title: 'Страховые случаи',
         description: 'Страховые выплаты, травмы, увечья, гибель.',
-        icon: '<svg width="32" height="32" fill="none" stroke="#f9fafb" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
+        icon: '<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="text-theme"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.07.74 5.62 1.98"/></svg>',
         details: [
           'Оформление страховых требований',
           'Споры со страховщиками',
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
       housing: {
         title: 'Жилищные вопросы',
         description: 'Субсидии, служебное жильё, очередность, споры.',
-        icon: '<svg width="32" height="32" fill="none" stroke="#f9fafb" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 0 0 1 1h3m10-11l2 2m-2-2v10a1 1 0 0 1-1 1h-3m-6 0a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1m-6 0h6"/></svg>',
+        icon: '<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="text-theme"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>',
         details: [
           'Жилищные субсидии',
           'Очередь и распределение',
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mortgage: {
         title: 'Ипотека для военнослужащих',
         description: 'НСУ, оформление, споры с банками и застройщиками.',
-        icon: '<svg width="32" height="32" fill="none" stroke="#f9fafb" stroke-width="2" viewBox="0 0 24 24"><path d="M7 21h10a2 2 0 0 0 2-2V9.414a1 1 0 0 0-.293-.707l-5.414-5.414A1 1 0 0 0 12.586 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"/></svg>',
+        icon: '<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="text-theme"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>',
         details: [
           'Проверка договоров и рисков',
           'Разрешение конфликтов с банком',
