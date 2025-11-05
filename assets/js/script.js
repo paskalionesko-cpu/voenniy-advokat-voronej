@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       var valid = true;
   
       if (!name.value || name.value.trim().length < 2) { valid = false; showError(name, true); } else { showError(name, false); }
-      var phoneRe = /^[\d+()\s-]{6,}$/;
+      var phoneRe = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
       if (!phone.value || !phoneRe.test(phone.value.trim())) { valid = false; showError(phone, true); } else { showError(phone, false); }
       if (!message.value || message.value.trim().length < 10) { valid = false; showError(message, true); } else { showError(message, false); }
   
@@ -306,3 +306,114 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // Маска для телефона
+(function() {
+  const phoneInput = document.getElementById('phone');
+  if (!phoneInput) return;
+
+  phoneInput.addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    
+    // Убираем 7 или 8 в начале, если они есть
+    if (value.startsWith('7') || value.startsWith('8')) {
+      value = value.substring(1);
+    }
+    
+    // Ограничиваем длину (10 цифр)
+    if (value.length > 10) {
+      value = value.substring(0, 10);
+    }
+    
+    // Форматируем значение
+    let formattedValue = '+7 ';
+    
+    if (value.length > 0) {
+      formattedValue += '(' + value.substring(0, 3);
+    }
+    if (value.length > 3) {
+      formattedValue += ') ' + value.substring(3, 6);
+    }
+    if (value.length > 6) {
+      formattedValue += '-' + value.substring(6, 8);
+    }
+    if (value.length > 8) {
+      formattedValue += '-' + value.substring(8, 10);
+    }
+    
+    e.target.value = formattedValue;
+  });
+
+  // Разрешаем только цифры и управляющие клавиши
+  phoneInput.addEventListener('keydown', function(e) {
+    if (!/[0-9]|Backspace|Delete|ArrowLeft|ArrowRight|Tab/.test(e.key)) {
+      e.preventDefault();
+    }
+  });
+
+  // Обновляем паттерн валидации для соответствия формату
+  phoneInput.setAttribute('pattern', '^\\+7 \\(\\d{3}\\) \\d{3}-\\d{2}-\\d{2}$');
+  
+  // Добавляем подсказку при фокусе
+  phoneInput.addEventListener('focus', function() {
+    if (!this.value) {
+      this.value = '+7 (';
+    }
+  });
+})();
+
+
+// Управление темой
+(function() {
+  const themeToggle = document.getElementById('themeToggle');
+  const sunIcon = document.getElementById('sunIcon');
+  const moonIcon = document.getElementById('moonIcon');
+  
+  // Функция для получения текущей темы
+  function getTheme() {
+    // Проверяем localStorage, затем системную тему, затем по умолчанию светлая
+    return localStorage.getItem('theme') || 'light';
+  }
+  
+  // Функция для установки темы
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    // Обновляем иконки
+    if (theme === 'light') {
+      sunIcon.classList.add('hidden');
+      moonIcon.classList.remove('hidden');
+    } else {
+      sunIcon.classList.remove('hidden');
+      moonIcon.classList.add('hidden');
+    }
+  }
+  
+  // Функция для переключения темы
+  function toggleTheme() {
+    const currentTheme = getTheme();
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+  
+  // Инициализация темы при загрузке (без дергания)
+  function initTheme() {
+    // Устанавливаем тему до того, как страница станет видимой
+    const savedTheme = getTheme();
+    setTheme(savedTheme);
+    
+    // Добавляем класс для плавных переходов только после загрузки
+    setTimeout(() => {
+      document.documentElement.classList.add('theme-transition');
+    }, 100);
+  }
+  
+  // Обработчики событий
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+  
+  // Инициализируем тему
+  initTheme();
+})();
