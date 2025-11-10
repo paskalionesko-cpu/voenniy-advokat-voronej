@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /pages/
+Disallow: /assets/
+Disallow: /media/
+
+Sitemap: https://voenniy-advokat-voronej.vercel.app/sitemap.xml
