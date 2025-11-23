@@ -1143,15 +1143,18 @@ html {
   background: var(--block);
   border-radius: 1rem;
   padding: 2rem;
+  z-index: 1;
 }
 
 .card-gradient-border-form {
   border-radius: 1rem;
   padding: 2rem;
   border: 0.1rem solid var(--border);
+  z-index: 1;
 }
 
 .card-gradient-border::before {
+  z-index: -1;
   content: '';
   position: absolute;
   inset: 0;
