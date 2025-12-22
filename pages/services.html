@@ -10,6 +10,7 @@
   <meta name="keywords"
     content="услуги военного адвоката, военный адвокат воронеж услуги, военный адвокат город воронеж, консультация военного адвоката воронеж, адвокат для военнослужащих воронеж" />
   <meta name="author" content="Военный адвокат" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://voenniy-advokat-voronej.vercel.app/pages/services.html" />
 
   <link rel="sitemap" type="application/xml" href="../sitemap.xml" title="Sitemap">
@@ -203,28 +204,22 @@
     </svg>
   </button>
 
-  <header class="sticky top-0 z-40 backdrop-blur bg-header-bar border-b border-theme">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-header-bar border-b border-theme transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="h-16 flex items-center justify-between relative">
-        <a href="/" class="hidden md:flex items-center gap-2 hover:text-theme transition">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          <span>Назад к главной</span>
-        </a>
-        <a href="/" class="md:hidden flex items-center gap-2 hover:text-theme transition">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" viewBox="0 0 24 24">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          <span>Назад</span>
-        </a>
-        <a href="/" class="absolute left-1/2 transform -translate-x-1/2">
-          <img src="../media/logo.svg" alt="Военный адвокат Воронеж" width="40" height="40" class="rounded"
+      <div class="h-16 flex items-center justify-between">
+        <!-- Логотип с текстом слева (все устройства) -->
+        <a href="/" class="flex items-center gap-3">
+          <img src="../media/logo.svg" alt="Военный адвокат Воронеж - логотип" width="40" height="40" class="rounded"
             loading="eager" />
+          <span class="text-lg sm:text-xl font-extrabold tracking-tight text-theme">Военный адвокат Воронеж</span>
         </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+
+        <!-- Desktop: навигация справа -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-300">
+          <a href="/" class="hover:text-theme transition">Главная</a>
+          <a href="/pages/services.html" class="text-accent">Услуги</a>
+          <a href="/pages/faq.html" class="hover:text-theme transition">Частые вопросы</a>
+          <a href="/#contacts" class="hover:text-theme transition">Контакты</a>
           <a href="tel:+79601003232" class="btn-call">
             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -233,10 +228,52 @@
             <span>+7 (960) 100-32-32</span>
           </a>
         </nav>
-        <div class="md:hidden w-20"></div>
+
+        <!-- Mobile: бургер меню -->
+        <button id="mobileMenuToggle" class="lg:hidden p-2 rounded-lg hover:bg-bright transition-colors"
+          aria-label="Открыть меню" aria-expanded="false">
+          <svg id="menuIcon" class="w-6 h-6 text-theme" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="closeIcon" class="w-6 h-6 text-theme hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
     </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden hidden border-t border-theme bg-block">
+      <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-4">
+        <a href="/"
+          class="mobile-menu-link text-theme hover:text-accent transition-colors py-2 border-b border-theme">Главная</a>
+        <a href="/pages/services.html" class="mobile-menu-link text-accent py-2 border-b border-theme">Услуги</a>
+        <a href="/pages/faq.html"
+          class="mobile-menu-link text-theme hover:text-accent transition-colors py-2 border-b border-theme">Частые
+          вопросы</a>
+        <a href="/#contacts"
+          class="mobile-menu-link text-theme hover:text-accent transition-colors py-2 border-b border-theme">Контакты</a>
+        <a href="tel:+79601003232" class="btn-call mt-2">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.07 22 2 13.93 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.59a1 1 0 0 1-.25 1.01l-2.2 2.19Z" />
+          </svg>
+          <span>+7 (960) 100-32-32</span>
+        </a>
+      </nav>
+    </div>
   </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="bg-block border-b border-theme" aria-label="Breadcrumb">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <ol class="flex items-center gap-2 text-sm text-gray-400">
+        <li><a href="/" class="hover:text-accent transition">Главная</a></li>
+        <li><span>/</span></li>
+        <li class="text-theme font-medium">Услуги</li>
+      </ol>
+    </div>
+  </nav>
 
   <main>
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

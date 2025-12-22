@@ -56,30 +56,30 @@ html {
 }
 
 [data-theme="light"] {
-  --bg: #f8f9fa;
+  --bg: #f5f7fa;
   --block: #ffffff;
-  --bright: #e9ecef;
-  --btn: #dee2e6;
-  --accent: #0d6efd;
-  --accent-secondary: #dc3545;
-  --accent-success: #198754;
-  --text: #212529;
-  --text-secondary: #495057;
-  --text-muted: #6c757d;
-  --border: #ced4da;
+  --bright: #e8ecf1;
+  --btn: #d9dfe6;
+  --accent: #2563eb;
+  --accent-secondary: #dc2626;
+  --accent-success: #16a34a;
+  --text: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border: #cbd5e1;
 
-  --accent-rgb: 30, 64, 175;
-  --accent-secondary-rgb: 217, 119, 6;
-  --accent-success-rgb: 5, 150, 105;
+  --accent-rgb: 37, 99, 235;
+  --accent-secondary-rgb: 220, 38, 38;
+  --accent-success-rgb: 22, 163, 74;
   --text-rgb: 30, 41, 59;
-  --bg-rgb: 250, 252, 255;
+  --bg-rgb: 245, 247, 250;
   --block-rgb: 255, 255, 255;
-  --shadow-color: rgba(30, 64, 175, 0.08);
+  --shadow-color: rgba(15, 23, 42, 0.06);
   --overlay-light: rgba(255, 255, 255, 0.9);
-  --overlay-dark: rgba(30, 41, 59, 0.03);
-  --dots-color: rgba(30, 64, 175, 0.05);
-  --glow-color: rgba(30, 64, 175, 0.12);
-  --glow-secondary: rgba(217, 119, 6, 0.12);
+  --overlay-dark: rgba(30, 41, 59, 0.02);
+  --dots-color: rgba(37, 99, 235, 0.04);
+  --glow-color: rgba(37, 99, 235, 0.08);
+  --glow-secondary: rgba(220, 38, 38, 0.08);
 }
 
 /* Базовые классы */
@@ -666,36 +666,36 @@ html {
 }
 
 [data-theme="light"] .btn {
-  background: linear-gradient(135deg, #f8faff 0%, #f1f6ff 100%);
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
 }
 
 [data-theme="light"] .btn:hover {
-  background: linear-gradient(135deg, #f1f6ff 0%, #e8f0ff 100%);
-  box-shadow: 0 4px 12px 0 rgba(79, 70, 229, 0.08);
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  box-shadow: 0 4px 12px 0 rgba(37, 99, 235, 0.1);
 }
 
 [data-theme="light"] .service-detail-card,
 [data-theme="light"] .info-card,
 [data-theme="light"] .service-card-main {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 255, 0.98) 100%);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border: 1px solid rgba(203, 213, 225, 0.6);
   box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.04),
-    0 2px 4px -1px rgba(0, 0, 0, 0.03),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    0 2px 4px -1px rgba(15, 23, 42, 0.04),
+    0 1px 2px -1px rgba(15, 23, 42, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 [data-theme="light"] .bg-dots-soft {
-  background-color: #fafcff;
-  background-image: radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.08) 1px, transparent 0);
+  background-color: #f5f7fa;
+  background-image: radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.03) 1px, transparent 0);
 }
 
 [data-theme="light"] .bg-header-bar {
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px) saturate(180%);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px) saturate(150%);
+  border-bottom: 1px solid rgba(203, 213, 225, 0.5);
 }
 
 /* Исправления для читаемости в светлой теме */
