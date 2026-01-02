@@ -1,3 +1,5 @@
+
+
 /* Базовые анимации появления */
 .reveal-init {
   opacity: 0;
@@ -1478,4 +1480,133 @@ html {
   background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
   border-color: transparent;
   color: white;
+}
+
+/* Service Tab Container */
+.service-tabs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  background: var(--block);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .service-tabs-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .service-tabs-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .service-tabs-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Service Tab Buttons */
+.service-tab-btn {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.service-tab-btn:hover {
+  color: var(--text);
+  background: var(--bright);
+}
+
+.service-tab-btn.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  color: white;
+  box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.3);
+}
+
+.service-tab-btn.active:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  opacity: 0.9;
+}
+
+/* FAQ Tabs Container */
+.faq-tabs-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  background: var(--block);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .faq-tabs-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-tabs-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-tabs-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FAQ Tab Buttons */
+.faq-tab-btn {
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.faq-tab-btn:hover {
+  color: var(--text);
+  background: var(--bright);
+}
+
+.faq-tab-btn.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  color: white;
+  box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.3);
+}
+
+.faq-tab-btn.active:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  opacity: 0.9;
+}
+
+/* Service items visibility */
+.service-item.hidden {
+  display: none !important;
 }

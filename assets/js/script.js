@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // FAQ поиск и фильтрация
 (function () {
   const searchInput = document.getElementById('faqSearch');
-  const filterBtns = document.querySelectorAll('.faq-filter-btn');
+  const filterBtns = document.querySelectorAll('.faq-tab-btn');
   const faqItems = document.querySelectorAll('.faq-item');
 
   if (!searchInput || !filterBtns.length || !faqItems.length) return;
@@ -534,4 +534,61 @@ document.addEventListener('DOMContentLoaded', function () {
   // Инициализация: показываем категорию "general" при загрузке
   currentCategory = 'general';
   filterFAQ();
+})();
+
+// Фильтрация услуг на главной странице
+(function () {
+  const serviceTabBtns = document.querySelectorAll('.service-tab-btn');
+  const serviceItems = document.querySelectorAll('.service-item');
+  const featuredService = document.getElementById('featured-service');
+
+  if (!serviceTabBtns.length || !serviceItems.length) return;
+
+  let currentCategory = 'military';
+
+  // Функция фильтрации
+  function filterServices(category) {
+    serviceItems.forEach(item => {
+      const itemCategory = item.dataset.category;
+      
+      if (itemCategory === category) {
+        item.classList.remove('hidden');
+        // Плавное появление
+        item.style.opacity = '0';
+        setTimeout(() => {
+          item.style.transition = 'opacity 0.3s ease';
+          item.style.opacity = '1';
+        }, 10);
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+
+    // Скрываем featured карточку, если не военный адвокат
+    if (featuredService) {
+      if (category === 'military') {
+        featuredService.style.display = '';
+        featuredService.classList.remove('hidden');
+      } else {
+        featuredService.style.display = 'none';
+        featuredService.classList.add('hidden');
+      }
+    }
+  }
+
+  // Обработчик табов
+  serviceTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Убираем active у всех кнопок
+      serviceTabBtns.forEach(b => b.classList.remove('active'));
+      // Добавляем active к текущей
+      btn.classList.add('active');
+
+      currentCategory = btn.dataset.category;
+      filterServices(currentCategory);
+    });
+  });
+
+  // Инициализация: показываем военного адвоката при загрузке
+  filterServices(currentCategory);
 })();
