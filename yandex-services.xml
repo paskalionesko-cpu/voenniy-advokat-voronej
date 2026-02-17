@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<offers_feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://voenniy-advokat-voronej.vercel.app/yandex-services.xsd"
+  generated_at="2026-02-17T12:00:00+03:00"
+  source="https://voenniy-advokat-voronej.vercel.app/">
+  <provider>
+    <name>Адвокат в Воронеже</name>
+    <site>https://voenniy-advokat-voronej.vercel.app/</site>
+    <phone>+79601003232</phone>
+    <email>voenniy-advokat-voronej@yandex.ru</email>
+    <address>г. Воронеж, ул. 25 Января, 6а</address>
+    <region>Воронеж и Воронежская область</region>
+  </provider>
+
+  <categories>
+    <category id="military">Военный адвокат</category>
+    <category id="civil">Гражданский адвокат</category>
+    <category id="lawyer">Юрист</category>
+    <category id="realtor">Риелтор</category>
+  </categories>
+
+  <offers>
+    <offer id="offer-military-consultation">
+      <title>Консультация военного адвоката</title>
+      <category_id>military</category_id>
+      <url>https://voenniy-advokat-voronej.vercel.app/pages/voennyy-advokat.html</url>
+      <description>Первичная консультация по вопросам военной службы: контракты, увольнение, выплаты, жилье.</description>
+      <price>
+        <amount>0</amount>
+        <currency>RUB</currency>
+        <unit>за консультацию</unit>
+      </price>
+      <image>https://voenniy-advokat-voronej.vercel.app/media/hero.png</image>
+      <region>Воронеж</region>
+      <updated_at>2026-02-17</updated_at>
+    </offer>
+
+    <offer id="offer-military-support">
+      <title>Сопровождение по военным делам</title>
+      <category_id>military</category_id>
+      <url>https://voenniy-advokat-voronej.vercel.app/pages/voennyy-advokat.html</url>
+      <description>Подготовка рапортов, жалоб, заявлений и представительство в суде.</description>
+      <price>
+        <amount>7000</amount>
+        <currency>RUB</currency>
+        <unit>от</unit>
+      </price>
+      <image>https://voenniy-advokat-voronej.vercel.app/media/hero.png</image>
+      <region>Воронеж</region>
+      <updated_at>2026-02-17</updated_at>
+    </offer>
+
+    <offer id="offer-civil-disputes">
+      <title>Семейные и трудовые споры</title>
+      <category_id>civil</category_id>
+      <url>https://voenniy-advokat-voronej.vercel.app/pages/services.html</url>
+      <description>Развод, алименты, раздел имущества, трудовые конфликты и защита прав потребителей.</description>
+      <price>
+        <amount>6000</amount>
+        <currency>RUB</currency>
+        <unit>от</unit>
+      </price>
+      <image>https://voenniy-advokat-voronej.vercel.app/media/hero.png</image>
+      <region>Воронеж</region>
+      <updated_at>2026-02-17</updated_at>
+    </offer>
+
+    <offer id="offer-lawyer-documents">
+      <title>Составление юридических документов</title>
+      <category_id>lawyer</category_id>
+      <url>https://voenniy-advokat-voronej.vercel.app/pages/yurist.html</url>
+      <description>Иски, претензии, договоры, жалобы и правовая экспертиза документов.</description>
+      <price>
+        <amount>3000</amount>
+        <currency>RUB</currency>
+        <unit>от</unit>
+      </price>
+      <image>https://voenniy-advokat-voronej.vercel.app/media/hero.png</image>
+      <region>Воронеж</region>
+      <updated_at>2026-02-17</updated_at>
+    </offer>
+
+    <offer id="offer-realtor-support">
+      <title>Юридическое сопровождение сделок с недвижимостью</title>
+      <category_id>realtor</category_id>
+      <url>https://voenniy-advokat-voronej.vercel.app/pages/rieltor.html</url>
+      <description>Проверка объекта, документов, подготовка договора и сопровождение регистрации сделки.</description>
+      <price>
+        <amount>15000</amount>
+        <currency>RUB</currency>
+        <unit>от</unit>
+      </price>
+      <image>https://voenniy-advokat-voronej.vercel.app/media/hero.png</image>
+      <region>Воронеж</region>
+      <updated_at>2026-02-17</updated_at>
+    </offer>
+  </offers>
+</offers_feed>
