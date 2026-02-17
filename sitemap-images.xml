@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Главная страница с изображениями -->
+  <url>
+    <loc>https://voenniy-advokat-voronej.vercel.app/</loc>
+    <image:image>
+      <image:loc>https://voenniy-advokat-voronej.vercel.app/media/logo.svg</image:loc>
+      <image:title>Военный адвокат Воронеж - логотип</image:title>
+      <image:caption>Профессиональный военный адвокат в Воронеже</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://voenniy-advokat-voronej.vercel.app/media/hero.png</image:loc>
+      <image:title>Военный адвокат - юридическая помощь</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Фавиконки и иконки приложения -->
+  <url>
+    <loc>https://voenniy-advokat-voronej.vercel.app/</loc>
+    <image:image>
+      <image:loc>https://voenniy-advokat-voronej.vercel.app/media/android-chrome-192x192.png</image:loc>
+      <image:title>Военный адвокат Воронеж - иконка приложения 192x192</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://voenniy-advokat-voronej.vercel.app/media/android-chrome-512x512.png</image:loc>
+      <image:title>Военный адвокат Воронеж - иконка приложения 512x512</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://voenniy-advokat-voronej.vercel.app/media/apple-touch-icon.png</image:loc>
+      <image:title>Военный адвокат Воронеж - иконка для Apple устройств</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Фотографии офиса -->
+  <url>
+    <loc>https://voenniy-advokat-voronej.vercel.app/</loc>
+    <image:image>
+      <image:loc>https://voenniy-advokat-voronej.vercel.app/media/office1.png</image:loc>
+      <image:title>Офис военного адвоката в Воронеже - приемная</image:title>
+      <image:caption>Комфортная приемная для клиентов военного адвоката</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://voenniy-advokat-voronej.vercel.app/media/office2.png</image:loc>
+      <image:title>Офис военного адвоката в Воронеже - рабочий кабинет</image:title>
+      <image:caption>Профессиональный рабочий кабинет адвоката</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://voenniy-advokat-voronej.vercel.app/media/office3.png</image:loc>
+      <image:title>Офис военного адвоката в Воронеже - переговорная</image:title>
+      <image:caption>Переговорная комната для конфиденциальных встреч</image:caption>
+    </image:image>
+  </url>
+  
+</urlset>

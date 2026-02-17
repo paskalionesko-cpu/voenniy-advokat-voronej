@@ -1,0 +1,8 @@
+{
+    "name":"Военный адвокат в Воронеже — Юридическая помощь военнослужащим | Консультация бесплатно",
+    "short_name":"Военный адвокат в Воронеже",
+    "icons":[{"src":"../media/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"../media/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],
+    "theme_color":"#151517",
+    "background_color":"#151517",
+    "display":"standalone"
+}

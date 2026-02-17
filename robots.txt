@@ -1,0 +1,36 @@
+# Robots.txt для сайта военного адвоката в Воронеже
+# Оптимизировано для лучшей индексации
+
+User-agent: *
+Allow: /
+Allow: /pages/
+Allow: /media/*.png
+Allow: /media/*.jpg
+Allow: /media/*.jpeg
+Allow: /media/*.webp
+Allow: /media/*.svg
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# Специальные правила для Yandex
+User-agent: Yandex
+Allow: /
+Allow: /pages/
+Allow: /media/
+Disallow: /assets/
+
+# Специальные правила для Google
+User-agent: Googlebot
+Allow: /
+Allow: /pages/
+Allow: /media/
+
+# Запрет для ботов, которые не соблюдают правила
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap
+Sitemap: https://voenniy-advokat-voronej.vercel.app/sitemap.xml
+Sitemap: https://voenniy-advokat-voronej.vercel.app/sitemap-images.xml
