@@ -1721,6 +1721,17 @@ body {
   border: 1px solid rgba(var(--accent-rgb), 0.36);
 }
 
+.hero-feature-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hero-feature-list > .hero-feature-card {
+  display: block;
+  width: 100%;
+}
+
+
 .home-after-hero {
   background: linear-gradient(180deg, #151517 0%, #1b2234 52%, #202a40 100%);
 }
